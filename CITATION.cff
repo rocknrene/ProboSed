@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use ProboSed in your research, please cite the following work."
+title: "ProboSed: Probabilistic Sediment Transport and Slope Failure Modeling"
+version: 0.1.0
+date-released: 2026-03-13
+authors:
+  - family-names: Castillo
+    given-names: Rene
+    affiliation: The Ohio State University
+repository-code: https://github.com/rocknrene/probosed
+license: MIT
+keywords:
+  - marine geology
+  - submarine landslides
+  - sediment transport
+  - probabilistic modeling
+  - geohazards
+  - mass transport deposits
+preferred-citation:
+  type: thesis
+  authors:
+    - family-names: Castillo
+      given-names: René
+  title: "Slip Happens: Probabilistic Modeling of Submarine Mass Transport Deposits and Sediment Routing in Convergent Margin Basins"
+  institution: The Ohio State University
+  year: 2027
