@@ -204,6 +204,7 @@ Committee Members:
 
 Dr. Cole  
 Dr. Keep
+
 Dr. Krissek
 
 This work is connected to research conducted using data from
