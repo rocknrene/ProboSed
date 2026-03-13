@@ -9,11 +9,11 @@ Probabilistic Sediment Transport & Slope Failure Modeling
 
 If you use **ProboSed** in research, please cite:
 
-Castillo, R. (2026).  
-Probabilistic Modeling of Submarine Mass Transport Deposits and Sediment Routing in Convergent Margin Basins.  
+Castillo, R. (2027).  
+Slip Happens: Probabilistic Modeling of Submarine Mass Transport Deposits and Sediment Routing in Convergent Margin Basins.  
 PhD Dissertation, The Ohio State University.
 
-DOI: (insert DOI when available)
+DOI: (ONE DAY I AM DREAMING)
 
 ---
 
@@ -98,15 +98,114 @@ Example datasets used during development include cores from the **Japan Trench m
 # Installation
 
 Clone the repository:
-git clone https://github.com/rocknrene/probosed.git
 
+```bash
+git clone https://github.com/rocknrene/probosed.git
 cd probosed
+```
 
 Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
 
 Or install as a package:
+
+```bash
 pip install probosed
+```
 
+---
 
+# Quickstart Example
 
+Example probabilistic slope-failure simulation:
+
+```python
+from probosed import slope
+
+model = slope.ProbabilisticSlopeModel(
+    slope_angle=12,
+    cohesion_mean=5,
+    friction_angle_mean=30,
+    pore_pressure_distribution="normal"
+)
+
+results = model.run_simulation(n=10000)
+
+model.plot_failure_probability()
+```
+
+---
+
+# Repository Structure
+
+```
+probosed/
+│
+├── probosed/
+│   ├── slope/
+│   ├── transport/
+│   ├── core_ml/
+│   └── utils/
+│
+├── notebooks/
+│
+├── data_examples/
+│
+├── tests/
+│
+└── docs/
+```
+
+---
+
+# Roadmap
+
+v0.1 — Initial probabilistic slope-failure framework
+
+v0.2 — Dual-head lithology/disturbance classification for sediment cores
+
+v0.3 — Agent-based turbidity current simulation
+
+v0.4 — Pore pressure evolution module
+
+v1.0 — Integrated MTD simulation framework
+
+---
+
+# Contributing
+
+Contributions are welcome. Please open an issue to discuss proposed changes.
+
+---
+
+# License
+
+MIT License
+
+---
+
+# Acknowledgments
+
+Development of ProboSed is part of doctoral research conducted at
+The Ohio State University, School of Earth Sciences.
+
+I would like to thank the mentors and collaborators who have supported
+the scientific development behind this project:
+
+Dr. Brendan Crowell — Co-Advisor  
+Dr. Jill Leonard-Pingel — Co-Advisor  
+
+Dr. Christine Regalla — Co-Chief Scientist, IODP Expedition 405
+
+Committee Members:
+
+Dr. Cole  
+Dr. Keep
+Dr. Krissek
+
+This work is connected to research conducted using data from
+the International Ocean Discovery Program (IODP), including
+Expedition 405 and Expedition 386 investigations of the Japan Trench margin.
