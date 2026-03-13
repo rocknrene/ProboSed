@@ -3,7 +3,7 @@ message: "If you use ProboSed in your research, please cite the following work."
 title: "ProboSed: Probabilistic Sediment Transport and Slope Failure Modeling"
 version: 0.1.0
 date-released: 2026-03-13
-authors:
+author:
   - family-names: Castillo
     given-names: Rene
     affiliation: The Ohio State University
