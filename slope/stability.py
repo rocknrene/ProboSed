@@ -58,3 +58,14 @@ def run_ensemble(forcing_series, n_sims=1000, seed=42):
         results.append(q_ensemble)
         
     return jnp.array(results)
+
+@jax.jit
+def calculate_lyapunov(q_ensemble, epsilon=1e-5):
+    '''
+    Calculates the exponential rate of divergence between 
+    sediment states. This is the 'Chaos Metric' for JpGU.
+    '''
+    # We compare the ensemble to a slightly perturbed version
+    divergence = jnp.abs(q_ensemble[1:] - q_ensemble[:-1])
+    # Lyapunov Exponent = Mean(log(divergence))
+    return jnp.mean(jnp.log(divergence + 1e-10))
