@@ -10,7 +10,7 @@ class VCDLabeler:
         self.authors = authors
         self.patch_files = [f for f in sorted(os.listdir(patch_folder)) if f.endswith(('.png', '.jpg'))]
         self.current_idx = 0
-        
+
         if not os.path.exists(self.output_csv):
             cols = ['filename', 'lithology', 'disturbance', 'author', 'confidence', 'notes']
             pd.DataFrame(columns=cols).to_csv(self.output_csv, index=False)
@@ -28,7 +28,7 @@ class VCDLabeler:
 
         self.save_btn.on_click(self._save_entry)
         self._load_image()
-        
+
         display(widgets.VBox([self.img_w, self.auth_w, self.lith_w, self.dist_w, self.conf_w, self.note_w, self.save_btn, self.prog_w]))
 
     def _load_image(self):
