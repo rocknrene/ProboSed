@@ -1,212 +1,212 @@
 # ProboSed
-Probabilistic Sediment Transport & Slope Failure Modeling
-
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-
+ 
+**Probabilistic Sediment Transport & Slope Failure Modeling**
+ 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Open 01_stitch in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/01_stitch.ipynb)
+[![Open 02_label in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/02_label.ipynb)
+ 
 ---
-
+ 
 ## Cite This Work
-
-If you use **ProboSed** in research, please cite:
-
-Castillo, R. (2027).  
-Slip Happens: Probabilistic Modeling of Submarine Mass Transport Deposits and Sediment Routing in Convergent Margin Basins.  
-PhD Dissertation, The Ohio State University.
-
-DOI: (ONE DAY I AM DREAMING)
-
+ 
+If you use ProboSed in your research, please cite:
+ 
+> Castillo, R. (2027).
+> *Slip Happens: Probabilistic Modeling of Submarine Mass Transport Deposits and Sediment Routing in Convergent Margin Basins.*
+> PhD Dissertation, The Ohio State University.
+ 
 ---
-
-# Mission
-
-Deterministic slope-failure models assume a single “correct” failure condition, yet natural sedimentary systems are inherently stochastic. Variations in pore pressure, permeability architecture, grain size distribution, and seismic forcing create ensembles of possible slope-failure pathways rather than a single deterministic outcome.
-
-**ProboSed** provides a probabilistic framework for modeling submarine sediment transport and slope instability using:
-
-- probabilistic slope-failure ensembles
-- agent-based sediment transport
-- machine learning classification of sedimentary disturbance
-- integration of IODP core data and geophysical observations
-
-The goal is to bridge **sedimentology, geomechanics, and data-driven modeling** to better understand submarine landslides and mass-transport deposits (MTDs).
-
+ 
+## Mission
+ 
+Deterministic slope-failure models assume a single "correct" failure condition, yet natural sedimentary systems are inherently stochastic. Variations in pore pressure, permeability architecture, grain size distribution, and seismic forcing create ensembles of possible failure pathways rather than a single deterministic outcome.
+ 
+ProboSed provides a probabilistic framework for modeling submarine sediment transport and slope instability using:
+ 
+- Probabilistic slope-failure ensembles
+- Agent-based sediment transport
+- Machine learning classification of sedimentary disturbance
+- Integration of IODP core imagery and geophysical observations
+The goal is to bridge sedimentology, geomechanics, and data-driven modeling to better understand submarine landslides and mass-transport deposits (MTDs).
+ 
 ---
-
-# Key Features
-
-## Probabilistic Slope Failure
-
-Implements stochastic slope-stability simulations where the following parameters are treated as probability distributions rather than fixed values:
-
-- pore pressure
-- shear strength
-- sediment density
-- seismic forcing
-
+ 
+## Key Features
+ 
+### Probabilistic Slope Failure
+Stochastic slope-stability simulations where pore pressure, shear strength, sediment density, and seismic forcing are treated as probability distributions rather than fixed values.
+ 
+### Sediment Transport Agent Models
+Agent-based simulations representing sediment particles moving downslope under varying forcing conditions. Applications include submarine landslides, turbidity currents, and mass-transport deposits.
+ 
+### Core Disturbance Classification
+Interactive tools for visual classification of IODP core imagery, including lithology identification and deformation fabric mapping. Designed to produce labeled datasets for machine learning workflows.
+ 
+### Multimodal Data Integration
+Supports integration of core images, grain size distributions, MAD density and porosity, vane shear measurements, and geophysical well logs.
+ 
 ---
-
-## Sediment Transport Agent Models
-
-Agent-based simulations represent sediment particles moving downslope under varying forcing conditions.
-
-Applications include:
-
-- submarine landslides
-- turbidity currents
-- mass-transport deposits (MTDs)
-
+ 
+## Notebooks
+ 
+The two main workflows are provided as Jupyter notebooks designed to run in Google Colab.
+ 
+| Notebook | Purpose |
+|---|---|
+| [`01_stitch.ipynb`](notebooks/01_stitch.ipynb) | Stitch raw IODP core section scans into vertical chunks |
+| [`02_label.ipynb`](notebooks/02_label.ipynb) | Cut chunks into patches and classify them interactively |
+ 
+All expedition-specific settings (file paths, metadata column names, classification vocabulary, patch size) are contained in a single `CONFIG` block at the top of each notebook. No other edits are needed to adapt the pipeline to a different expedition or core.
+ 
+**To run:**
+1. Click one of the "Open in Colab" badges above
+2. Edit the `CONFIG` cell for your expedition
+3. Runtime → Run all
 ---
-
-## Core Disturbance Classification
-
-Machine learning tools for analyzing sediment cores including:
-
-- lithology prediction
-- disturbance detection
-- deformation classification
-
-Designed for **IODP core imagery and physical property datasets.**
-
----
-
-## Multimodal Data Integration
-
-Supports integration of:
-
-- core images
-- grain size distributions
-- MAD density and porosity
-- vane shear measurements
-- geophysical well logs
-
----
-
-# Scientific Applications
-
-ProboSed is designed for research in:
-
-- submarine landslides
-- mass-transport deposits (MTDs)
-- earthquake-triggered sediment transport
-- slope stability modeling
-- marine sediment routing systems
-
-Example datasets used during development include cores from the **Japan Trench margin (IODP Expeditions 386 and 405).**
-
----
-
-# Installation
-
+ 
+## Installation
+ 
 Clone the repository:
-
+ 
 ```bash
-git clone https://github.com/rocknrene/probosed.git
-cd probosed
+git clone https://github.com/rocknrene/ProboSed.git
+cd ProboSed
 ```
-
+ 
 Install dependencies:
-
+ 
 ```bash
 pip install -r requirements.txt
 ```
-
+ 
 Or install as a package:
-
+ 
 ```bash
 pip install probosed
 ```
-
+ 
 ---
-
-# Quickstart Example
-
-Example probabilistic slope-failure simulation:
-
+ 
+## Quickstart Example
+ 
+Probabilistic slope-failure simulation:
+ 
 ```python
-from probosed import slope
-
-model = slope.ProbabilisticSlopeModel(
-    slope_angle=12,
-    cohesion_mean=5,
-    friction_angle_mean=30,
-    pore_pressure_distribution="normal"
+from slope.stability import run_ensemble, calculate_lyapunov, classify_stability
+import jax.numpy as jnp
+ 
+# Define a simple forward model (replace with your physics)
+forward_fn = lambda q: q + 0.01 * jnp.sin(q)
+ 
+# Initialize an ensemble of 1000 sediment states
+initial_states = jnp.linspace(0, 1, 1000)
+ 
+# Run ensemble forward 100 steps
+final_states = run_ensemble(initial_states, forward_fn, n_steps=100)
+ 
+# Compute Lyapunov Exponent (chaos metric)
+lyapunov = calculate_lyapunov(final_states)
+print(f"Lyapunov Exponent: {lyapunov:.4f}")
+print(f"Stability class:   {classify_stability(float(lyapunov))}")
+```
+ 
+Agent-based transport simulation:
+ 
+```python
+from transport.agents import TransportEnsemble
+ 
+ensemble = TransportEnsemble(
+    n_agents           = 1000,
+    slope_angle_deg    = 12.0,
+    pore_pressure_mean = 0.4,
+    pore_pressure_std  = 0.1,
+    grain_size_mean_mm = 0.063,
 )
-
-results = model.run_simulation(n=10000)
-
-model.plot_failure_probability()
+ 
+results = ensemble.run(n_steps=500, dt=0.1)
+ensemble.summary()
 ```
-
+ 
 ---
-
-# Repository Structure
-
+ 
+## Repository Structure
+ 
 ```
-probosed/
-│
-├── probosed/
-│   ├── slope/
-│   ├── transport/
-│   ├── core_ml/
-│   └── utils/
-│
+ProboSed/
 ├── notebooks/
+│   ├── 01_stitch.ipynb       # Core image stitching pipeline
+│   └── 02_label.ipynb        # Patch cutting and visual classification
 │
-├── data_examples/
+├── core_ml/
+│   ├── __init__.py
+│   └── labeler.py            # PatchLabeler widget (used by 02_label.ipynb)
 │
-├── tests/
+├── slope/
+│   ├── __init__.py
+│   └── stability.py          # Lyapunov chaos metric, stability classifier
 │
-└── docs/
+├── transport/
+│   ├── __init__.py
+│   └── agents.py             # Agent-based sediment transport ensemble
+│
+├── utils/
+│   ├── __init__.py
+│   └── patcher.py            # Standalone patch cutting utility
+│
+├── __init__.py
+├── pyproject.toml
+├── CITATION.cff
+├── LICENSE
+└── README.md
 ```
-
+ 
 ---
-
-# Roadmap
-
-v0.1 — Initial probabilistic slope-failure framework
-
-v0.2 — Dual-head lithology/disturbance classification for sediment cores
-
-v0.3 — Agent-based turbidity current simulation
-
-v0.4 — Pore pressure evolution module
-
-v1.0 — Integrated MTD simulation framework
-
+ 
+## Roadmap
+ 
+- **v0.1** — Initial probabilistic slope-failure framework ✓
+- **v0.2** — Visual core description labeling pipeline (01_stitch, 02_label) ✓
+- **v0.3** — Agent-based turbidity current simulation
+- **v0.4** — Pore pressure evolution module
+- **v1.0** — Integrated MTD simulation framework
 ---
-
-# Contributing
-
-Contributions are welcome. Please open an issue to discuss proposed changes.
-
+ 
+## Scientific Applications
+ 
+ProboSed is designed for research in:
+ 
+- Submarine landslides and mass-transport deposits
+- Earthquake-triggered sediment transport
+- Slope stability modeling at convergent margins
+- Marine sediment routing systems
+Example datasets used during development include cores from the Japan Trench margin (IODP Expeditions 386 and 405).
+ 
 ---
-
-# License
-
-MIT License
-
+ 
+## Contributing
+ 
+Contributions are welcome. Please open an issue to discuss proposed changes before submitting a pull request.
+ 
 ---
-
-# Acknowledgments
-
-Development of ProboSed is part of doctoral research conducted at
-The Ohio State University, School of Earth Sciences.
-
-I would like to thank the mentors and collaborators who have supported
-the scientific development behind this project:
-
-Dr. Brendan Crowell — Co-Advisor  
-Dr. Jill Leonard-Pingel — Co-Advisor  
-
-Dr. Christine Regalla — Co-Chief Scientist, IODP Expedition 405
-
-Committee Members:
-
-Dr. Cole  
-Dr. Keep
-
-Dr. Krissek
-
-This work is connected to research conducted using data from
-the International Ocean Discovery Program (IODP), including
-Expedition 405 and Expedition 386 investigations of the Japan Trench margin.
+ 
+## License
+ 
+MIT License — see [LICENSE](LICENSE) for details.
+ 
+---
+ 
+## Acknowledgments
+ 
+Development of ProboSed is part of doctoral research at The Ohio State University, School of Earth Sciences.
+ 
+**Advisors**
+- Dr. Brendan Crowell — Co-Advisor
+- Dr. Jill Leonard-Pingel — Co-Advisor
+**Committee**
+- Dr. Cole
+- Dr. Keep
+- Dr. Krissek
+**Field Science**
+- Dr. Christine Regalla — Co-Chief Scientist, IODP Expedition 405
+This work uses data from the International Ocean Discovery Program (IODP), including Expeditions 405 and 386 at the Japan Trench margin.
