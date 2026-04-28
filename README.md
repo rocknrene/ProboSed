@@ -227,6 +227,53 @@ plot_C0019J(iw_j, gc_j, 'C0019J_geochemistry_profiles.png',
             mtd_catalog=mtd_catalog)
 ```
 
+### Agent-based sediment transport
+
+```python
+from transport.agents import SedimentAgentModel, forcing_from_slope, calculate_clast_distribution
+
+# compute physically motivated forcing from slope geometry
+# Japan Trench frontal prism: ~8 degree slope, moderate pore pressure
+forcing = forcing_from_slope(
+    slope_angle_deg     = 8.0,    # degrees
+    pore_pressure_ratio = 0.35,   # lambda — moderate overpressure
+)
+
+# run grain transport ensemble
+model   = SedimentAgentModel(
+    settling_velocity = 0.02,   # m/s — fine silt, D50 ~20 microns
+    drag_coeff        = 0.5,    # natural irregular grains
+)
+results = model.run(n_agents=10_000, n_steps=500, forcing=forcing)
+model.summary(results)
+
+# compute clast distribution (proxy for MTD deposit thickness profile)
+counts, edges, centers = calculate_clast_distribution(results['final_positions'])
+```
+
+### Core image patch extraction
+
+```python
+from utils.patcher import slice_core_image, batch_slice
+
+# slice a single core section scan into 256x256 patches
+result = slice_core_image(
+    image_path    = 'C0019J_section_14K_1.tif',
+    output_folder = 'patches/14K_1/',
+    patch_size    = 256,
+    overlap       = 0,
+)
+print(f"{result['n_patches']} patches written to {result['output_folder']}")
+
+# or process a whole folder of core scans at once
+batch = batch_slice(
+    input_folder = 'core_scans/',
+    output_root  = 'patches/',
+    patch_size   = 256,
+)
+print(f"{batch['total_patches']} total patches from {batch['n_images']} images")
+```
+
 ---
 
 ## Validation strategy
@@ -254,8 +301,9 @@ contrasts rather than artifacts of any single measurement method.
 - v0.2 — JCORES VCD extraction pipeline ✓
 - v0.3 — Porewater geochemistry integration ✓
 - v0.4 — Parameter sensitivity analysis ✓
-- v0.5 — Agent-based turbidity current simulation (in progress)
-- v0.6 — VCDLabeler for handwritten VCD forms (pending handwriting model)
+- v0.5 — Agent-based sediment transport ensemble ✓
+- v0.6 — Core image patch extraction utility ✓
+- v0.7 — VCDLabeler for handwritten VCD forms (pending handwriting model)
 - v1.0 — Integrated MTD simulation framework
 
 ---
