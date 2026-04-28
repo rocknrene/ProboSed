@@ -114,7 +114,7 @@ ProboSed/
 │
 ├── geochem/
 │   ├── __init__.py
-│   └── geochem_figures.py      Porewater and headspace gas depth profiles
+│   └── geochem_analysis.py      Porewater and headspace gas depth profiles
 │
 ├── transport/
 │   ├── __init__.py
@@ -214,7 +214,7 @@ print(mtds)
 ### Geochemistry figures
 
 ```python
-from geochem.geochem_figures import load_iw, load_gc, plot_C0019J
+from geochem.geochem_analysis import load_iw, load_gc, plot_C0019J
 import pandas as pd
 
 iw_j = load_iw('SummarySheet-IW-Hole_Exp405_C0019J_250312.xlsx')
@@ -290,7 +290,8 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 
-Development of ProboSed is part of research at Johns Hopkins University and the Applied Physics Laboratory, Dragonfly Guest Investigator.
+Development of ProboSed is part of doctoral research at The Ohio State
+University, School of Earth Sciences.
 
 **Advisors**
 Dr. Brendan Crowell — Co-Advisor
