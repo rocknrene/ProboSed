@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "probosed"
+version = "0.4.0"
+description = "Probabilistic sediment transport and slope failure modeling for the Japan Trench frontal prism"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+keywords = [
+  "marine geology",
+  "submarine landslides",
+  "mass transport deposits",
+  "sediment transport",
+  "slope stability",
+  "probabilistic modeling",
+  "IODP",
+  "Japan Trench",
+  "geohazards",
+]
+
+# Full dependency list — all modules in the pipeline
+dependencies = [
+  "numpy",
+  "scipy",
+  "pandas",
+  "matplotlib",
+  "openpyxl",      # required by geochem/geochem_analysis.py for .xlsx reading
+  "pymupdf",       # required by core_ml/labeler.py for JCORES PDF extraction
+  "ipywidgets",    # required by core_ml/labeler.py VCDLabeler interactive widget
+]
+
+[project.urls]
+Homepage   = "https://github.com/rocknrene/ProboSed"
+Repository = "https://github.com/rocknrene/ProboSed"
+
+[tool.setuptools.packages.find]
+# tells setuptools which folders are Python packages to include
+# each folder listed here must contain an __init__.py
+include = ["slope*", "core_ml*", "geochem*", "transport*", "utils*"]
