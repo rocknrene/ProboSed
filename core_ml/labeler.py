@@ -354,18 +354,19 @@ class JCORESMiner:
     CORE_PATTERN = re.compile(
     r'(?:Hole\s+C\d{4}[A-Z]\s+)?Core\s+(\d+[A-Z])', re.IGNORECASE
     )
-    
+
     # JCORES section pattern: section numbers follow tool type codes (W, H, R, F)
     # e.g., '1W' (whole round), '2H' (half round), 'CC' (core catcher)
     SECTION_PATTERN = re.compile(
     r'Section\s+(\d+|CC)\b', re.IGNORECASE
     )
 
-    # CSF-A depth pattern: JCORES prints depths as e.g. '207.45 m CSF-A'
+    # Depth pattern: extracts cored interval top depth from
+    # 'interval X to Y m' format present on every page of CORC0019.pdf
     DEPTH_PATTERN = re.compile(
-        r'(\d{1,3}\.\d{1,4})\s*m?\s*CSF-?A', re.IGNORECASE
+    r'interval\s+([\d.]+)\s+to\s+([\d.]+)\s+m', re.IGNORECASE
     )
-
+    
     def __init__(self, pdf_path, summary_xlsx_path):
         self.pdf_path           = pdf_path             # path to JCORES VCD PDF
         self.summary_xlsx_path  = summary_xlsx_path    # path to core summary Excel file
@@ -529,15 +530,13 @@ class JCORESMiner:
                     disturbance_found = term
                     break   # first match is the lowest (most severe) score
 
-            # 4. Match to backbone depth
+            # 4. Extract depth directly from interval text
+            # Format: 'interval X to Y m' appears on every page
+            # Use the top of the interval (X) as the representative depth
             depth = None
-            if core_id and section_id:
-                depth = backbone_lookup.get((core_id, section_id))
-                if depth is None and section_id != 'CC':
-                    # Try stripping the tool type suffix (e.g., '1W' -> '1')
-                    # to handle cases where the backbone uses numeric-only section IDs
-                    section_num = re.sub(r'[A-Z]', '', section_id)
-                    depth       = backbone_lookup.get((core_id, section_num))
+            depth_match = self.DEPTH_PATTERN.search(text)
+            if depth_match:
+                depth = float(depth_match.group(1))   # top of cored interval in m CSF-A
 
             # Keep a short text snippet for manual QC of extraction quality
             snippet = text[:200].replace('\n', ' ').strip()
