@@ -4,10 +4,19 @@
 **IODP Expeditions 386 and 405 — Japan Trench Frontal Prism**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Open 01_labeling in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/01_labeling.ipynb)
-[![Open 02_toy_model in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/02_toy_model.ipynb)
-[![Open 03_sensitivity in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/03_sensitivity.ipynb)
-[![Open 04_geochem in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/04_geochem.ipynb)
+## Notebooks
+
+### 01 — VCD Labeling
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/01_labeling.ipynb)
+
+### 02 — Toy Model
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/02_toy_model.ipynb)
+
+### 03 — Sensitivity Analysis
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/03_sensitivity.ipynb)
+
+### 04 — Geochemistry
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/04_geochem.ipynb)
 
 ---
 
