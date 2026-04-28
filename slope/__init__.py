@@ -8,11 +8,3 @@ Modules:
   toy_model       -- standalone simulation script
   sensitivity_run -- parameter sensitivity analysis script
 """
-from slope.stability import (
-    STABILITY_MAP,
-    run_ensemble,
-    calculate_lyapunov,
-    failure_statistics,
-    threshold_from_vcd,
-    run_sensitivity,
-)
