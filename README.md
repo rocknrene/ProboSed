@@ -290,8 +290,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 
-Development of ProboSed is part of doctoral research at The Ohio State
-University, School of Earth Sciences.
+Development of ProboSed is part of research at Johns Hopkins University and the Applied Physics Laboratory, Dragonfly Guest Investigator.
 
 **Advisors**
 Dr. Brendan Crowell — Co-Advisor
