@@ -352,13 +352,13 @@ class JCORESMiner:
     # JCORES core ID pattern: matches '405-C0019J-14K' or 'C0019J-14K'
     # Captures the core label (e.g., '14K') after the last hyphen
     CORE_PATTERN = re.compile(
-        r'(?:405-)?C\d{4}[A-Z]-(\d+[A-Z])', re.IGNORECASE
+    r'(?:Hole\s+C\d{4}[A-Z]\s+)?Core\s+(\d+[A-Z])', re.IGNORECASE
     )
-
+    
     # JCORES section pattern: section numbers follow tool type codes (W, H, R, F)
     # e.g., '1W' (whole round), '2H' (half round), 'CC' (core catcher)
     SECTION_PATTERN = re.compile(
-        r'\b(\d{1,2}[WHRF]|CC)\b', re.IGNORECASE
+    r'Section\s+(\d+|CC)\b', re.IGNORECASE
     )
 
     # CSF-A depth pattern: JCORES prints depths as e.g. '207.45 m CSF-A'
