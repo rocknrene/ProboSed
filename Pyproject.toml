@@ -30,6 +30,7 @@ dependencies = [
   "openpyxl",      # required by geochem/geochem_analysis.py for .xlsx reading
   "pymupdf",       # required by core_ml/labeler.py for JCORES PDF extraction
   "ipywidgets",    # required by core_ml/labeler.py VCDLabeler interactive widget
+  "opencv-python-headless",  # required by utils/patcher.py for core image slicing
 ]
 
 [project.urls]
