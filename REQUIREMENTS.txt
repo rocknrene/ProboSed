@@ -1,0 +1,8 @@
+numpy
+matplotlib
+pandas
+openpyxl
+scipy
+pymupdf
+ipywidgets
+opencv-python-headless
