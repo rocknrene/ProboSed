@@ -42,7 +42,7 @@ import numpy as np
 # This is the single source of truth for disturbance label -> score mapping.
 # Both the interactive VCDLabeler and the automated JCORESMiner pathways
 # use this map to ensure consistent scoring across the pipeline.
-from stability import STABILITY_MAP
+from slope.stability import STABILITY_MAP
 
 
 # =============================================================================
