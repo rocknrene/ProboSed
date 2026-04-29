@@ -7,7 +7,7 @@
 ## Notebooks
 
 ### 01 — VCD Labeling
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/01_labeling.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/01_JCORES_vcd_labeling.ipynb)
 
 ### 02 — Toy Model
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/02_toy_model.ipynb)
