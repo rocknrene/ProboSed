@@ -18,6 +18,9 @@
 ### 04 — Geochemistry
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/04_geochem.ipynb)
 
+### 05 — MTD quantification
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rocknrene/ProboSed/blob/main/notebooks/05_mtd_quantification.ipynb)
+
 ---
 
 ## Citation
