@@ -1,9 +1,10 @@
 # ProboSed
 
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.20669114.svg)](https://doi.org/10.5281/zenodo.20669114)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **Probabilistic Sediment Transport and Slope Failure Modeling**
 IODP Expeditions 386 and 405 — Japan Trench Frontal Prism
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
@@ -35,7 +36,11 @@ IODP Expeditions 386 and 405 — Japan Trench Frontal Prism
 
 ## Citation
 
-If ProboSed is used in published research, please cite:
+If ProboSed is used in published research, please cite the software:
+
+> Castillo, R. (2025). *ProboSed: Probabilistic Sediment Transport and Slope Failure Modeling* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20669114
+
+And if referencing the underlying research:
 
 > Castillo, R. (2027). *Slip Happens: Probabilistic Modeling of Submarine Mass Transport Deposits and Sediment Routing in Convergent Margin Basins.* PhD Dissertation, The Ohio State University.
 
