@@ -1,6 +1,6 @@
 # ProboSed
 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.20669114.svg)](https://doi.org/10.5281/zenodo.20669114)
+[![DOI](https://zenodo.org/badge/1180640235.svg)](https://doi.org/10.5281/zenodo.20669113)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Probabilistic Sediment Transport and Slope Failure Modeling**
@@ -38,7 +38,7 @@ IODP Expeditions 386 and 405 — Japan Trench Frontal Prism
 
 If ProboSed is used in published research, please cite the software:
 
-> Castillo, R. (2025). *ProboSed: Probabilistic Sediment Transport and Slope Failure Modeling* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20669114
+> Castillo, R. (2025). *ProboSed: Probabilistic Sediment Transport and Slope Failure Modeling* (v1.0.0). Zenodo.https://doi.org/10.5281/zenodo.20669113
 
 And if referencing the underlying research:
 
