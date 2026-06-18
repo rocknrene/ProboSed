@@ -48,8 +48,6 @@ Process flag: **T** = Tectonic · **G** = Gravitational · **D** = Depositional 
 
 **MTD-context rule:** fault terms appearing within mass-transport context are downgraded T -> G. Faults within MTDs are soft-sediment features, not tectonic structures.
 
-**SDE threshold mapping:** $\theta(\text{FPI}) = \text{clip}\!\left(\tfrac{2}{3}\,\text{FPI},\ 0,\ 2\right)$
-
 ### Physical Parameter Constraints
 
 | Parameter | Value | Physical basis |
