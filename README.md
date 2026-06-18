@@ -46,6 +46,10 @@ where the failure threshold $\theta(x)$ is derived from the FPI score:
 
 Process flag: **T** = Tectonic · **G** = Gravitational · **D** = Depositional · **F** = Fluid escape · **U** = Undetermined
 
+**MTD-context rule:** fault terms appearing within mass-transport context are downgraded T -> G. Faults within MTDs are soft-sediment features, not tectonic structures.
+
+**SDE threshold mapping:** $\theta(\text{FPI}) = \text{clip}\!\left(\tfrac{2}{3}\,\text{FPI},\ 0,\ 2\right)$
+
 ### Physical Parameter Constraints
 
 | Parameter | Value | Physical basis |
@@ -139,27 +143,6 @@ All notebooks are designed to run in Google Colab without local installation. Ea
 | Structural_Mask_vs_Stress | Structural overprint flags versus Conin et al. JFAST/JTRACK borehole breakout stress data. | Structural-stress comparison figure |
 | Sediment_Stability_Pipeline | **Legacy -- retained for provenance only.** Early VCD lexicon parser and geotechnical merge pipeline using the original single-axis stability score (0--3). Superseded by ProboSed_VCD_FPI_Catalog, which implements the two-axis FPI + process flag system. Do not use as part of the active analysis pipeline. | Stability depth profile (legacy) |
 | Pipeline_Summary_Figures | Graphviz workflow diagram and two-panel mechanical regime depth profile. | Workflow diagram, regime figure |
-
----
-
-## FPI + Process Flag System
-
-The two-axis classification system used throughout ProboSed:
-
-**FPI axis (observable fabric state):**
-
-| FPI | Label | Physical meaning |
-|---|---|---|
-| 3 | Intact | Primary fabric fully preserved |
-| 2 | Partially preserved | Minor disruption, fabric recognizable |
-| 1 | Fabric destroyed | Scaly/shear surfaces, original fabric lost |
-| 0 | Structureless | No fabric, homogeneous or fluidized |
-
-**Process flag (observable process type):** T = Tectonic | G = Gravitational | D = Depositional | F = Fluid escape | U = Undetermined
-
-**MTD-context rule:** fault terms appearing within mass-transport context are downgraded T -> G. Faults within MTDs are soft-sediment features, not tectonic structures.
-
-**SDE threshold mapping:** $\theta(\text{FPI}) = \text{clip}\!\left(\tfrac{2}{3}\,\text{FPI},\ 0,\ 2\right)$
 
 ---
 
