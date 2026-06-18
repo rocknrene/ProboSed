@@ -10,6 +10,7 @@ ProboSed is a Python pipeline for extracting Fabric Preservation Index (FPI) sco
 ---
 
 ## Scientific Background
+
 ### Governing Equations
 
 Slope displacement $q(t)$ and fault slip $s(t)$ are modeled as coupled Ornstein–Uhlenbeck stochastic differential equations:
@@ -33,6 +34,26 @@ where the failure threshold $\theta(x)$ is derived from the FPI score:
 $$
 \theta(x) = \text{clip}\!\left(\tfrac{2}{3}\,x,\ 0,\ 2\right), \quad x \in \\{0, 1, 2, 3\\}
 $$
+
+### FPI + Process Flag System
+
+| FPI | Label | Physical meaning | Failure threshold $\theta$ |
+|-----|-------|-----------------|--------------------------|
+| 3 | Intact | Primary fabric fully preserved | 2.00 |
+| 2 | Partially preserved | Minor disruption, fabric recognizable | 1.33 |
+| 1 | Fabric destroyed | Scaly/shear surfaces, original fabric lost | 0.67 |
+| 0 | Structureless | No fabric, homogeneous or fluidized | 0.00 |
+
+Process flag: **T** = Tectonic · **G** = Gravitational · **D** = Depositional · **F** = Fluid escape · **U** = Undetermined
+
+### Physical Parameter Constraints
+
+| Parameter | Value | Physical basis |
+|-----------|-------|---------------|
+| $\sigma_q$ | 0.6 | Frontal prism $V_p$ = 1550–1750 m/s (Exp 405 LWD, Unit I) |
+| $\gamma$ | 1.0 | Moderate restoring force; 1.5–2.0 for seismically strengthened sediment (Exp 386) |
+| $\alpha$ | 0.5 | $P_c'$ = 17 MPa overconsolidation supports non-zero coupling (Valdez et al. 2015) |
+| $\text{slip\_mag}$ | 3.0 | Scaled from ~50 m coseismic slip at C0019 décollement (Fulton et al. 2013) |
 
 ## Repository Structure
 
