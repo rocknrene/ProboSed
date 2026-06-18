@@ -26,13 +26,13 @@ $$
 Slope failure is defined as a first-passage problem:
 
 $$
-\tau = \inf\\{ t > 0 : q(t) > \theta(x) \\}
+\tau = \inf\{ t > 0 : q(t) > \theta(x) \}
 $$
 
 where the failure threshold $\theta(x)$ is derived from the FPI score:
 
 $$
-\theta(x) = \mathrm{clip}\left(\frac{2}{3}\,x,\ 0,\ 2\right), \quad x \in \{0, 1, 2, 3\}
+\theta(x) = \min\!\left(\frac{2x}{3},\ 2\right), \quad x \in \{0, 1, 2, 3\}
 $$
 
 ### FPI + Process Flag System
