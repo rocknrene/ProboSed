@@ -9,6 +9,25 @@ ProboSed is a Python pipeline for extracting Fabric Preservation Index (FPI) sco
 
 ---
 
+## Scientific Background
+
+### Governing Equations
+
+Slope displacement $q(t)$ and fault slip $s(t)$ are modeled as coupled Ornstein–Uhlenbeck stochastic differential equations:
+```
+$$ds = -k_f \cdot s \, dt + \sigma_s \, dW_s$$
+$$dq = (-\gamma q + \alpha s) \, dt + \sigma_q \, dW_q$$
+```
+Slope failure is defined as a first-passage problem:
+```
+$$\tau = \inf\{ t > 0 : q(t) > \theta(x) \}$$
+```
+where the failure threshold $\theta(x)$ is derived from the FPI score:
+
+```
+$$\theta(x) = \text{clip}\!\left(\tfrac{2}{3}\,x,\ 0,\ 2\right), \quad x \in \{0, 1, 2, 3\}$$
+```
+
 ## Repository Structure
 
 ```
@@ -117,37 +136,66 @@ The two-axis classification system used throughout ProboSed:
 
 ---
 
-## Expedition Coverage
+## Scientific Applications
 
-| Expedition | Site | Margin | Miner | gamma | sigma_q |
-|---|---|---|---|---|---|
-| 308 | U1322, Ursa Basin | Passive | StraterMiner | 0.6 | Derived from local Vp CSV |
-| 386 | M0081, Japan Trench | Convergent | Exp386Miner | 1.5 | Derived from PANGAEA MSCL (DOIs: PANGAEA.974882, 974883, 974885) |
-| 405 | C0019J, Japan Trench | Convergent | JCORESMiner | 1.0 | 0.6 (calibrated from LWD Vp 1550--1750 m/s) |
+ProboSed is designed for research in:
 
-Expedition 386 Holes M0081E and M0081F are excluded from Vp calibration due to a calibration flag in operator notes (Vp overestimated in sections 1--29, Strasser et al. 2025).
+- Submarine landslides and mass-transport deposits
+- Earthquake-triggered sediment transport at convergent margins
+- Probabilistic slope stability modeling
+- Marine sediment routing systems
+- IODP core data integration with geophysical observations
 
----
-## Acknowledgements
-
-This work was developed with the guidance and support of my advisors, committee members, and collaborators.
-
-### Advisors
-- Dr. Brendan Crowell (Ohio State University)  
-- Dr. Jill Leonard-Pingel (Ohio State University)  
-
-### Committee Members
-- Dr. David Cole (Ohio State University)  
-- Dr. Lawrence Krissek (Ohio State University)  
-- Dr. Myra Keep (University of Western Australia)  
-- Dr. Christine Regalla (Co-Chief Scientist, IODP Expedition 405)  
-
-I am especially grateful to Dr. Christine Regalla for her contributions as Co-Chief Scientist of IODP Expedition 405 and for her insight into the scientific framing of this work.
-
-### Data & Expedition Support
-I acknowledge the scientific teams and data providers associated with IODP Expeditions 308, 386, and 405.
+Development uses core and logging data from the Japan Trench margin, IODP Expeditions 386 and 405, Site C0019.
 
 ---
+
+## Contributing
+
+Contributions are welcome. Please open an issue to discuss proposed changes before submitting a pull request.
+
+---
+
+## License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+## Acknowledgments
+
+Development of ProboSed is part of doctoral research at The Ohio State University, School of Earth Sciences.
+
+**Advisors**
+Dr. Brendan Crowell — Co-Advisor
+Dr. Jill Leonard-Pingel — Co-Advisor
+
+**Dissertation Committee**
+Dr. Cole · Dr. Keep · Dr. Krissek
+
+**Field Science**
+Dr. Christine Regalla — Co-Chief Scientist, IODP Expedition 405
+
+**Data**
+This work uses data from the International Ocean Discovery Program (IODP), Expeditions 386 and 405, Japan Trench margin.
+
+---
+
+## Selected References
+
+Chester, F.M., et al. (2013). Structure and composition of the plate-boundary slip zone for the 2011 Tohoku-oki earthquake. *Science*, 342(6163), 1208–1211.
+
+Fulton, P.M., et al. (2013). Low coseismic friction on the Tohoku-oki fault determined from temperature measurements. *Science*, 342(6163), 1214–1217.
+
+Valdez, R.D., et al. (2015). Data report: permeability and consolidation behavior of sediments from the northern Japan Trench subduction zone, IODP Site C0019. *Proc. IODP*, 343/343T.
+
+Expedition 405 Scientists (2025). Site C0019. In *Proc. IODP*, 405.
+
+Alstott, J., Bullmore, E., & Plenz, D. (2014). powerlaw: A Python package for analysis of heavy-tailed distributions. *PLOS ONE*, 9(1), e85777.
+
+Haralick, R.M., Shanmugam, K., & Dinstein, I. (1973). Textural features for image classification. *IEEE Transactions on Systems, Man, and Cybernetics*, 3(6), 610–621.
+---
+
 ## Citation
 
 If you use ProboSed, please cite:
