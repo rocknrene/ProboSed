@@ -18,7 +18,6 @@ Slope displacement $q(t)$ and fault slip $s(t)$ are modeled as coupled Ornsteinâ
 ```math
 ds = -k_f \cdot s \, dt + \sigma_s \, dW_s
 ```
-
 ```math
 dq = (-\gamma q + \alpha s) \, dt + \sigma_q \, dW_q
 ```
