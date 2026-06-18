@@ -113,7 +113,7 @@ The two-axis classification system used throughout ProboSed:
 
 **MTD-context rule:** fault terms appearing within mass-transport context are downgraded T -> G. Faults within MTDs are soft-sediment features, not tectonic structures.
 
-**SDE threshold mapping:** theta(FPI) = clip(FPI x 2/3, 0, 2)
+**SDE threshold mapping:** $\theta(\text{FPI}) = \text{clip}\!\left(\tfrac{2}{3}\,\text{FPI},\ 0,\ 2\right)$
 
 ---
 
