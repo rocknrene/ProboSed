@@ -32,7 +32,7 @@ $$
 where the failure threshold $\theta(x)$ is derived from the FPI score:
 
 $$
-\theta(x) = \text{clip}\!\left(\tfrac{2}{3}\,x,\ 0,\ 2\right), \quad x \in \\{0, 1, 2, 3\\}
+\theta(x) = \mathrm{clip}\left(\frac{2}{3}\,x,\ 0,\ 2\right), \quad x \in \{0, 1, 2, 3\}
 $$
 
 ### FPI + Process Flag System
