@@ -10,23 +10,29 @@ ProboSed is a Python pipeline for extracting Fabric Preservation Index (FPI) sco
 ---
 
 ## Scientific Background
-
 ### Governing Equations
 
 Slope displacement $q(t)$ and fault slip $s(t)$ are modeled as coupled Ornstein–Uhlenbeck stochastic differential equations:
-```
-$$ds = -k_f \cdot s \, dt + \sigma_s \, dW_s$$
-$$dq = (-\gamma q + \alpha s) \, dt + \sigma_q \, dW_q$$
-```
+
+$$
+ds = -k_f \cdot s \, dt + \sigma_s \, dW_s
+$$
+
+$$
+dq = (-\gamma q + \alpha s) \, dt + \sigma_q \, dW_q
+$$
+
 Slope failure is defined as a first-passage problem:
-```
-$$\tau = \inf\{ t > 0 : q(t) > \theta(x) \}$$
-```
+
+$$
+\tau = \inf\\{ t > 0 : q(t) > \theta(x) \\}
+$$
+
 where the failure threshold $\theta(x)$ is derived from the FPI score:
 
-```
-$$\theta(x) = \text{clip}\!\left(\tfrac{2}{3}\,x,\ 0,\ 2\right), \quad x \in \{0, 1, 2, 3\}$$
-```
+$$
+\theta(x) = \text{clip}\!\left(\tfrac{2}{3}\,x,\ 0,\ 2\right), \quad x \in \\{0, 1, 2, 3\\}
+$$
 
 ## Repository Structure
 
