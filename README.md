@@ -53,7 +53,7 @@ Process flag: **T** = Tectonic · **G** = Gravitational · **D** = Depositional 
 | $\sigma_q$ | 0.6 | Frontal prism $V_p$ = 1550–1750 m/s (Exp 405 LWD, Unit I) |
 | $\gamma$ | 1.0 | Moderate restoring force; 1.5–2.0 for seismically strengthened sediment (Exp 386) |
 | $\alpha$ | 0.5 | $P_c'$ = 17 MPa overconsolidation supports non-zero coupling (Valdez et al. 2015) |
-| $\text{slip\_mag}$ | 3.0 | Scaled from ~50 m coseismic slip at C0019 décollement (Fulton et al. 2013) |
+| `slip_mag` | 3.0 | Scaled from ~50 m coseismic slip at C0019 décollement (Fulton et al. 2013) |
 
 ## Repository Structure
 
